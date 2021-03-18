@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListViewActivity">
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_green_dark"
+        android:gravity="center_horizontal"
+        android:text="Quản lý nhân viên"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <TextView
+        android:id="@+id/text_employee_code_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Mã NV: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_title" />
+
+    <EditText
+        android:id="@+id/edit_employee_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Mã NV"
+        app:layout_constraintBaseline_toBaselineOf="@id/text_employee_code_label"
+        app:layout_constraintStart_toEndOf="@id/guideline1" />
+
+    <TextView
+        android:id="@+id/text_employee_name_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Tên NV: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_employee_code" />
+
+    <EditText
+        android:id="@+id/edit_employee_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Tên NV"
+        app:layout_constraintTop_toBottomOf="@id/edit_employee_code"
+        app:layout_constraintStart_toEndOf="@id/guideline1" />
+
+    <TextView
+        android:id="@+id/text_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Giới tính"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_employee_name" />
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@id/guideline1"
+        app:layout_constraintTop_toBottomOf="@id/text_gender"
+        app:layout_constraintTop_toTopOf="@id/text_gender">
+
+        <RadioButton
+            android:id="@+id/radio_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Nữ" />
+
+        <RadioButton
+            android:id="@+id/radio_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nam" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button_submit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Nhập NV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guideline1"
+        app:layout_constraintTop_toBottomOf="@id/radio_group" />
+
+    <TextView
+        android:id="@+id/text_employees_list_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Danh sách nhân viên"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:background="@android:color/holo_green_dark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintTop_toBottomOf="@id/button_submit"/>
+
+    <ListView
+        android:id="@+id/list_employees"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/text_employees_list_label"
+        tools:listitem="@layout/item_employee"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="0dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
